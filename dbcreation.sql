@@ -4,7 +4,7 @@ CREATE DATABASE Blog
 GO
 USE Blog
 GO
-CREATE TABLE [User]
+CREATE TABLE Users
 (
     user_id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
     [name] NVARCHAR(50) NOT NULL,
@@ -36,7 +36,7 @@ GO
 ALTER TABLE Posts
 ADD CONSTRAINT fk_user_id
 FOREIGN KEY (user_id)
-REFERENCES [User](user_id)
+REFERENCES Users(user_id)
 GO
 CREATE TABLE Comments
 (
@@ -59,5 +59,5 @@ GO
 ALTER TABLE Comments
 ADD CONSTRAINT fk_posts_user_id
 FOREIGN KEY (user_id)
-REFERENCES [User](user_id)
+REFERENCES Users(user_id)
 GO
